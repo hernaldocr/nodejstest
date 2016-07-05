@@ -39,3 +39,22 @@ git push origin master
 #primero irnos a la rama que va a absorver los cambios y despues hacer el merge de la rama
 git checkout rama ##La rama que va a absorver los cambios
 git merge rama   ##la rama que va a ser absorvida
+git push origin rama ##subir estos cmabios a github
+
+#cambios comentario de los commit
+git commit --amend -m "Nuevo comentario"
+
+#forsar a que que subun los cambios
+git push origin master -f
+
+#crear las tag anotadas en el ultimo commit
+git tag -a v0.8 -m "Version 0.8 de nuestro proyecto"
+
+#crear las tag anotadas en un commit especifico 
+git tag -a v0.8 -m "Version 0.1 de nuestro proyecto" idcommit
+
+#subir un tag
+git push origin v1.0
+
+#subir todos lo tags de una vez
+git push origin --tags
