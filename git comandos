@@ -1,0 +1,32 @@
+#muestra el listad de los cambios que estan pendientes de subir
+git status
+
+#muestra un listado de los branch que tenemos
+git branch
+
+#se cambia entre ramas
+git branch rama
+
+#se pasa entre commit
+git checkout  idcommit
+
+#agrega todos los nuevos cambios
+git add -A 
+
+#hace un commit de los cambios
+git commit -m "descripcion del comit" 
+
+#Clona un repositorio de github
+git clone https:
+
+#vincular carpeta con github
+git remote add origin urlrepositorio
+
+#compromar que este ligado la carpeta con github
+git remote -v
+
+#eliminar el ligue del git con una carpeta local
+git remote remove origin
+
+# sube los cambios a github de la rama que deseamos subir
+git push origin master
