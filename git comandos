@@ -58,3 +58,12 @@ git push origin v1.0
 
 #subir todos lo tags de una vez
 git push origin --tags
+
+#ver rama oculta origin/master
+git branch -a
+
+#bajar commits que esta en el repositio remoto a la rama oculpa
+git fetch origin
+git merge origin/master
+
+
