@@ -7,8 +7,12 @@ git branch
 #se cambia entre ramas
 git branch rama
 
-#se pasa entre commit
-git checkout  idcommit
+#Elimina una rama
+git branch -D nombrerama
+
+#se pasa entre commit o ramas
+git checkout idcommit
+git checkout rama
 
 #agrega todos los nuevos cambios
 git add -A 
