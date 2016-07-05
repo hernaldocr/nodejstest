@@ -34,3 +34,8 @@ git remote remove origin
 
 # sube los cambios a github de la rama que deseamos subir
 git push origin master
+
+#hacer un merge entre ramas
+#primero irnos a la rama que va a absorver los cambios y despues hacer el merge de la rama
+git checkout rama ##La rama que va a absorver los cambios
+git merge rama   ##la rama que va a ser absorvida
