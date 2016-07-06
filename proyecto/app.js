@@ -25,18 +25,33 @@ app.get("/login", function(req,res){
 });
 
 app.post("/users", function(req,res){
+	
 	var user = new User({email: req.body.email, 
 		                 password: req.body.password,
-		                 password_confirmation: req.body.password_confirmation
+		                 password_confirmation: req.body.password_confirmation,
+		                 username: req.body.username
 		               });
-	console.log(user.password_confirmation);
 
+//vamos a usar el nuevo metodo de guardar con promesas usando then
+
+	user.save().then(function(us){
+		res.send("Guardamos el usuario exitosamente");
+	 	},function(err){
+	 		if(err){
+	 			console.log(String(err));
+	 			res.send("No pudimos guardar la informacion")
+	 		}
+	 	});
+	
+
+	/*Callback save
 	user.save(function(err){
 		if(err){
 			console.log(String(err));
 		}
 		res.send("Guardamos tus datos");
 	});
+	*/
 });
 
 app.listen(8080);
