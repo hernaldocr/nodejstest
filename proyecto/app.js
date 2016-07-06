@@ -1,22 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var User = require("./models/user").User;
 var app = express();
-var mongoose = require("mongoose");
-var Schema = mongoose.Schema;
-
-mongoose.connect("mongodb://localhost/fotos");
-
-// Colleciones = tablas
-// Documentos = filas de las tablas
-
-var userSchemaJSON= {
-	email:String,
-	password:String
-};
-
-var user_schema= new Schema(userSchemaJSON);
-
-var User = mongoose.model("User",user_schema);
 
 app.use("/estatico",express.static('public'));
 
@@ -40,15 +25,18 @@ app.get("/login", function(req,res){
 });
 
 app.post("/users", function(req,res){
-	var user = new User({email: req.body.email, password: req.body.password});
+	var user = new User({email: req.body.email, 
+		                 password: req.body.password,
+		                 password_confirmation: req.body.password_confirmation
+		               });
+	console.log(user.password_confirmation);
 
-	user.save(function(){
-
+	user.save(function(err){
+		if(err){
+			console.log(String(err));
+		}
 		res.send("Guardamos tus datos");
-
 	});
-
-	
 });
 
 app.listen(8080);
